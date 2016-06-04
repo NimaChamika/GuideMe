@@ -1,5 +1,6 @@
 package com.nima.guideme;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -13,7 +14,7 @@ import android.widget.Toast;
 
 public class ProvincePage extends ActionBarActivity {
 
-
+    AddPlaceDatabaseAdapter placedatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,14 +48,20 @@ public class ProvincePage extends ActionBarActivity {
                     public void onItemSelected(AdapterView<?> parent, View view,
                                                int position, long id) {
                         if(position==1) {
-                            Toast.makeText(ProvincePage.this, "Matara", Toast.LENGTH_SHORT).show();
+
+                            //Toast.makeText(ProvincePage.this, "Matara", Toast.LENGTH_SHORT).show();
+                            //ShowDistrict ddddd=new ShowDistrict("Matara");
+                            startActivity(new Intent(ProvincePage.this, ShowDistrict.class).putExtra("key", "Matara"));
+                            //startActivity(new Intent(view.getContext(), ShowDistrict.class));
                         }
 
                         if(position==2) {
-                            Toast.makeText(ProvincePage.this, "Galle", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(ProvincePage.this, "Galle", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(ProvincePage.this, ShowDistrict.class).putExtra("key", "Galle"));
                         }
                         if(position==3) {
                             Toast.makeText(ProvincePage.this, "Hambantotta", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(ProvincePage.this, ShowDistrict.class).putExtra("key", "Hambantota"));
                         }
 
                     }

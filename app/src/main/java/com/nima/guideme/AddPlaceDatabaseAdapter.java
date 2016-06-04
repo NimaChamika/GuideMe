@@ -52,12 +52,12 @@ public class AddPlaceDatabaseAdapter {
     }
 
 
-    public ArrayList<String> getDataToList1(){
+    public ArrayList<String> getDataToList1(String name){
 
         ArrayList<String> arList = new ArrayList();
         SQLiteDatabase db=placedatabase.getWritableDatabase();
         String[] columns={AddPlaceDatabse.UID,AddPlaceDatabse.NAME3,AddPlaceDatabse.NAME4};
-        Cursor cursor=db.query(AddPlaceDatabse.TABLE_NAME1,columns,null,null,null,null,null);
+        Cursor cursor=db.query(AddPlaceDatabse.TABLE_NAME1,columns,AddPlaceDatabse.NAME2+" ='"+name+"' ",null,null,null,null);
 
 
 

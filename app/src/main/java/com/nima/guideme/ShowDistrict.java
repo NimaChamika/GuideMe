@@ -1,5 +1,6 @@
 package com.nima.guideme;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -15,6 +16,7 @@ import java.util.List;
 
 public class ShowDistrict extends ActionBarActivity {
 
+
     DatabaseAdapter ddatabase;
     AddPlaceDatabaseAdapter placedatabase;
     private ListView lv;
@@ -28,12 +30,12 @@ public class ShowDistrict extends ActionBarActivity {
 
         lv = (ListView) findViewById(R.id.listViewFromDB);
 
-        // Instanciating an array list (you don't need to do this,
-        // you already have yours).
 
-        final List<String> your_array_list = placedatabase.getDataToList1();
+        Intent intent = getIntent();
+        String value = intent.getStringExtra("key");
 
 
+        final List<String> your_array_list = placedatabase.getDataToList1(value);
 
         // This is the array adapter, it takes the context of the activity as a
         // first parameter, the type of list view as a second parameter and your
@@ -56,6 +58,10 @@ public class ShowDistrict extends ActionBarActivity {
         });
 
     }
+
+   /* public ShowDistrict(String s){
+        super();
+    }*/
 
 
 

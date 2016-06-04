@@ -41,6 +41,7 @@ public class Addplace extends ActionBarActivity implements AdapterView.OnItemSel
     String photopath="";
     private String selectedImage;
     private Uri imageUri;
+    Boolean load= new Boolean("true");
 
 
 
@@ -62,7 +63,43 @@ public class Addplace extends ActionBarActivity implements AdapterView.OnItemSel
         s2 = (Spinner)findViewById(R.id.spinner2);
         s0.setOnItemSelectedListener(this);
         s1.setOnItemSelectedListener(this);
-    }
+
+
+        if(load==true) {
+            long id1 = placedatabase.insertData("Attraction", "Matara", "Matara Fort", "Anagarika Dharmapala Mawatha, Matara, Sri Lanka", "0412225373", "android.resource://com.nima.guideme/drawable/matarafort");
+            long id2 = placedatabase.insertData("Attraction", "Galle", "Galle National Museum", "Church St, Galle 80000", "0912232051", "android.resource://com.nima.guideme/drawable/gallemuseum");
+            long id27 = placedatabase.insertData("Attraction", "Galle", "Rumassala Sanctuaries Jungle", "Unawatuna, Galle, Sri Lanka    ", "0912232051", "android.resource://com.nima.guideme/drawable/rumassala");
+            long id3 = placedatabase.insertData("Attraction", "Hambantota", "Bundala National Park", "Tissamaharam Road, Hambantota", "0712619444", "android.resource://com.nima.guideme/drawable/bundala");
+            long id4 = placedatabase.insertData("Attraction", "Hambantota", "Yala National Park", "81/2 Sella Rd, Kataragama", "077 297 2639", "android.resource://com.nima.guideme/drawable/yala");
+            //long id5 = placedatabase.insertData("Attraction", "Hambantota", "Tissamaharama Raja Maha Vihara", "Rubberwatte Rd, Tissamaharama", " ","android.resource://com.nima.guideme/drawable/hotel");
+            long id28 = placedatabase.insertData("Attraction", "Hambantota", "Kiri Vehera", "Kataragama Rd, Kataragama", "0472235237", "android.resource://com.nima.guideme/drawable/kirivehera");
+            long id6 = placedatabase.insertData("Attraction", "Matara", "Weherahena Poorwarama Rajamaha Viharaya", "Weherahena Rd, Matara, Sri Lanka", " 0412222121", "android.resource://com.nima.guideme/drawable/weherahena");
+            long id7 = placedatabase.insertData("Attraction", "Matara", "Uthpalawanna Sri Vishnu Devalaya", "Dondra Light House Rd, Dondra, Sri Lanka", "0412223400", "android.resource://com.nima.guideme/drawable/devinuvara");
+            long id8 = placedatabase.insertData("Restaurant", "Matara", "Ambasewana Indian Resturant", "Beach Rd, Matara, Sri Lanka", "0412222944", "android.resource://com.nima.guideme/drawable/ambasevana");
+            long id9 = placedatabase.insertData("Restaurant", "Hambantota", "Coconut Palm Beach Seafood Restaurant", "Tangalle Road", "071 803 1141", "android.resource://com.nima.guideme/drawable/coconut");
+            long id10 = placedatabase.insertData("Restaurant", "Galle", "Lucky Fort Restaurant", "No 07,Prarawa street Galle, Galle 80000", "0912242922", "android.resource://com.nima.guideme/drawable/lucky");
+            long id11 = placedatabase.insertData("Restaurant", "Matara", "Riverbank Villa", "no.75. Thotupala road, Weragampita, Matara., Matara", "0412237375", "android.resource://com.nima.guideme/drawable/river");
+            long id12 = placedatabase.insertData("Restaurant", "Hambantota", "Mangrove Chalet Restaurant", "Kapuhenwala Road,Tangalle,Hambantota", "0472240020", "android.resource://com.nima.guideme/drawable/mangrove");
+            long id13 = placedatabase.insertData("Restaurant", "Matara", "Dragon's Dream Chinese Restaurant", "Beach Rd, Matara 81000", "0412230175", "android.resource://com.nima.guideme/drawable/dragon");
+            long id14 = placedatabase.insertData("Hotel", "Hambantota", "Mars Hotel", "No 61/1/A, Beach Road, Tangalle, Tangalle 82200", "0472241508", "android.resource://com.nima.guideme/drawable/mars");
+            long id15 = placedatabase.insertData("Hotel", "Galle", "Closenberg Hotel", "11 Closenberg Road, Galle 80000", "0912232241", "android.resource://com.nima.guideme/drawable/closenberg");
+            long id30 = placedatabase.insertData("Hotel", "Galle", "Galle Fort Hotel", "28 Church St, Galle 80000", "0912232870", "android.resource://com.nima.guideme/drawable/gallefort");
+            long id16 = placedatabase.insertData("Hotel", "Matara", "Gaga Addara Hotel", "295, Peakwella, Matara", "0413418474", "android.resource://com.nima.guideme/drawable/gagaaddra");
+            long id17 = placedatabase.insertData("Hotel", "Hambantota", "Nuga Eden Tangalle", "Mahawela Road, Tangalle Road, Tangalle 82200", "0472240389", "android.resource://com.nima.guideme/drawable/nugaeden");
+            long id18 = placedatabase.insertData("Hotel", "Matara", "Amaloh Boutique Hotel", "Matara", "0412230088", "android.resource://com.nima.guideme/drawable/amaloh");
+            long id19 = placedatabase.insertData("Hotel", "Matara", "Turtle Eco Beach", "Beach Road, Madiha,Matara, Matara 81000", "0412223377", "android.resource://com.nima.guideme/drawable/turtle");
+            long id20 = placedatabase.insertData("Hotel", "Hambantota", "Serein Beach Hotel", "Medilla, Tangalle", "0472240005", "android.resource://com.nima.guideme/drawable/serinbeach");
+            long id21 = placedatabase.insertData("Shopping", "Galle", "Singer Plus", "176, Old Matara Rd, Galle 80000", "0912247148", "android.resource://com.nima.guideme/drawable/singerplus");
+            long id22 = placedatabase.insertData("Shopping", "Galle", "ABBA International | Galle", "106 Colombo Rd, Galle 80000", "0112844844", "android.resource://com.nima.guideme/drawable/abba");
+            long id23 = placedatabase.insertData("Shopping", "Matara", "Jayananda Fashion", "41, Belitta Road, Dickwella", "0412256219", "android.resource://com.nima.guideme/drawable/jayananda");
+            long id24 = placedatabase.insertData("Shopping", "Hambantota", "ASB Fashion", "Tangalle", "0472241890", "android.resource://com.nima.guideme/drawable/abba");
+            long id29 = placedatabase.insertData("Shopping", "Hambantota", "Wise way textile", "No: 09 , MadaketiyaRoad , tangalle, Medaketiya Rd, Medaketiya", "0472242894", "android.resource://com.nima.guideme/drawable/wiseway");
+            long id25 = placedatabase.insertData("Shopping", "Matara", "Simayas", "#29, New Tangalle Road,, Kotuwegoda, Matara 81000", "0412222874", "android.resource://com.nima.guideme/drawable/simayas");
+            long id26 = placedatabase.insertData("Shopping", "Matara", "New Charles Silva", "101,, Main St, Matara 81000", "0412221956", "android.resource://com.nima.guideme/drawable/charlessilva");
+
+            load=false;
+        }
+        }
 
 
 
@@ -468,6 +505,11 @@ public class Addplace extends ActionBarActivity implements AdapterView.OnItemSel
     public void addplace(View view){
 
         //Toast.makeText(Addplace.this, pp, Toast.LENGTH_SHORT).show();
+
+
+
+
+
         String t=type;
         String dist =pp;
         String name = province.getText().toString();
@@ -498,7 +540,11 @@ public class Addplace extends ActionBarActivity implements AdapterView.OnItemSel
 
         else {
             long id = placedatabase.insertData(t, dist, name, add, num,path);
-            if (id < 0) {
+
+
+
+
+            if (id< 0) {
                 Message.message(this, "unseccessful");
 
             } else {
