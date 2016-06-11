@@ -62,6 +62,10 @@
             android:name=".Image"
             android:label="@string/title_activity_image" >
         </activity>
+        <activity
+            android:name=".ShowPlace"
+            android:label="@string/title_activity_show_place" >
+        </activity>
     </application>
 
 </manifest>

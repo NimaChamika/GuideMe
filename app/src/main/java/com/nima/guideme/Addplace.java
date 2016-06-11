@@ -31,7 +31,7 @@ public class Addplace extends ActionBarActivity implements AdapterView.OnItemSel
 
     //private static final int SD_REQUEST = 1;
     private static final int SELECT_PICTURE = 1;
-    private static final int TAKE_PICTURE = 2;
+    private static final int TAKE_PICTURE = 1;
     EditText province,district,place;
 
     AddPlaceDatabaseAdapter placedatabase;
@@ -41,7 +41,7 @@ public class Addplace extends ActionBarActivity implements AdapterView.OnItemSel
     String photopath="";
     private String selectedImage;
     private Uri imageUri;
-    Boolean load= new Boolean("true");
+
 
 
 
@@ -63,7 +63,7 @@ public class Addplace extends ActionBarActivity implements AdapterView.OnItemSel
         s2 = (Spinner)findViewById(R.id.spinner2);
         s0.setOnItemSelectedListener(this);
         s1.setOnItemSelectedListener(this);
-
+        Boolean load= new Boolean("true");
 
         if(load==true) {
             long id1 = placedatabase.insertData("Attraction", "Matara", "Matara Fort", "Anagarika Dharmapala Mawatha, Matara, Sri Lanka", "0412225373", "android.resource://com.nima.guideme/drawable/matarafort");
@@ -615,7 +615,7 @@ public class Addplace extends ActionBarActivity implements AdapterView.OnItemSel
                 imgView.setImageURI(Uri.parse(selectedImage));
                 photopath= selectedImage.toString();
             }
-            else{
+            else if(requestCode == TAKE_PICTURE){
                 Uri selectedImage = imageUri;
                 getContentResolver().notifyChange(selectedImage, null);
                 ImageView imageView = (ImageView) findViewById(R.id.image3);

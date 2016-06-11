@@ -105,4 +105,5 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_places_api">PlacesAPIActivity</string>
     <string name="title_activity_image">Image</string>
+    <string name="title_activity_show_place">ShowPlace</string>
 </resources>

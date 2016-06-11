@@ -35,7 +35,7 @@ public class ShowDistrict extends ActionBarActivity {
         String value = intent.getStringExtra("key");
 
 
-        final List<String> your_array_list = placedatabase.getDataToList1(value);
+        final List<String> your_array_list = placedatabase.getDataToList1(value,"Attraction");
 
         // This is the array adapter, it takes the context of the activity as a
         // first parameter, the type of list view as a second parameter and your
@@ -53,7 +53,11 @@ public class ShowDistrict extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 // TODO Auto-generated method stub
-                Toast.makeText(ShowDistrict.this, your_array_list.get(position), Toast.LENGTH_SHORT).show();
+                String story=(String) (lv.getItemAtPosition(position));
+                String[] lines = story.split(System.getProperty("line.separator"));
+                String firstLine = lines[0];
+                startActivity(new Intent(ShowDistrict.this, ShowPlace.class).putExtra("key", firstLine));
+                Toast.makeText(ShowDistrict.this, "Working", Toast.LENGTH_SHORT).show();
             }
         });
 

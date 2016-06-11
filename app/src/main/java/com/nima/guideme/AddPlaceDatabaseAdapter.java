@@ -15,6 +15,9 @@ import java.util.ArrayList;
 public class AddPlaceDatabaseAdapter {
 
     AddPlaceDatabse placedatabase;
+
+
+
     public AddPlaceDatabaseAdapter(Context context){
 
         placedatabase=new AddPlaceDatabse(context);
@@ -32,6 +35,9 @@ public class AddPlaceDatabaseAdapter {
         long id= db.insert(AddPlaceDatabse.TABLE_NAME1,null,contentValues);
         return id;
     }
+
+
+
 
     public String getData(){
         SQLiteDatabase db=placedatabase.getWritableDatabase();
@@ -52,13 +58,14 @@ public class AddPlaceDatabaseAdapter {
     }
 
 
-    public ArrayList<String> getDataToList1(String name){
+    public ArrayList<String> getDataToList1(String name,String type){
 
         ArrayList<String> arList = new ArrayList();
+        ArrayList<String> arLsit2=new ArrayList<>();
         SQLiteDatabase db=placedatabase.getWritableDatabase();
         String[] columns={AddPlaceDatabse.UID,AddPlaceDatabse.NAME3,AddPlaceDatabse.NAME4};
-        Cursor cursor=db.query(AddPlaceDatabse.TABLE_NAME1,columns,AddPlaceDatabse.NAME2+" ='"+name+"' ",null,null,null,null);
-
+        //Cursor cursor=db.query(AddPlaceDatabse.TABLE_NAME1,columns,AddPlaceDatabse.NAME2+" ='"+name+"' ",null,null,null,null);
+        Cursor cursor=db.query(AddPlaceDatabse.TABLE_NAME1,columns,AddPlaceDatabse.NAME2+" =? AND "+AddPlaceDatabse.NAME+"=?",new String[] { name, type },null,null,null);
 
 
         if (cursor != null ) {
@@ -68,7 +75,9 @@ public class AddPlaceDatabaseAdapter {
                     int index2=cursor.getColumnIndex(AddPlaceDatabse.NAME4);
                     String prov = cursor.getString(index1);
                     String dist=cursor.getString(index2);
-                    arList.add("" + prov + " " + dist);
+                    arList.add("" + prov + "\n" + dist);
+                   // arLsit2.add(prov);
+
                 }while (cursor.moveToNext());
             }
 
@@ -76,6 +85,36 @@ public class AddPlaceDatabaseAdapter {
         return arList;
     }
 
+    public ArrayList<String> getDataToList2(String name){
+
+        ArrayList<String> arList = new ArrayList();
+        SQLiteDatabase db=placedatabase.getWritableDatabase();
+        String[] columns={AddPlaceDatabse.UID,AddPlaceDatabse.NAME3,AddPlaceDatabse.NAME4,AddPlaceDatabse.NAME5,AddPlaceDatabse.PHOTO};
+        //Cursor cursor=db.query(AddPlaceDatabse.TABLE_NAME1,columns,AddPlaceDatabse.NAME2+" ='"+name+"' ",null,null,null,null);
+        Cursor cursor=db.query(AddPlaceDatabse.TABLE_NAME1,columns,AddPlaceDatabse.NAME3+" ='"+name+"' ",null,null,null,null);
+
+
+        if (cursor != null ) {
+            if  (cursor.moveToFirst()) {
+                do {
+                    int index1=cursor.getColumnIndex(AddPlaceDatabse.NAME3);
+                    int index2=cursor.getColumnIndex(AddPlaceDatabse.NAME4);
+                    int index3=cursor.getColumnIndex(AddPlaceDatabse.NAME5);
+                    int index4=cursor.getColumnIndex(AddPlaceDatabse.PHOTO);
+                    String pname = cursor.getString(index1);
+                    String address=cursor.getString(index2);
+                    String phone=cursor.getString(index3);
+                    String photo=cursor.getString(index4);
+                    arList.add(pname);
+                    arList.add(address);
+                    arList.add(phone);
+                    arList.add(photo);
+                }while (cursor.moveToNext());
+            }
+
+        }
+        return arList;
+    }
 
 
 
@@ -129,6 +168,9 @@ public class AddPlaceDatabaseAdapter {
                 String qurey = "CREATE TABLE "+TABLE_NAME1+"("+ UID +" INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME + " VARCHAR(255)," + NAME2 + " VARCHAR(255 ), "+NAME3+" VARCHAR(255), "+NAME4+" VARCHAR(255), "+NAME5+" VARCHAR(255)," + PHOTO+"  VARCHAR(255) );";
                 Message.message(context,"oncreate called");
                 db.execSQL(qurey);
+
+
+
             }catch (SQLException e){
                 Message.message(context,""+e);
             }
