@@ -32,10 +32,11 @@ public class ShowDistrict extends ActionBarActivity {
 
 
         Intent intent = getIntent();
-        String value = intent.getStringExtra("key");
+        String value[] = intent.getStringArrayExtra("key");
+        System.out.println(value[0]);
 
 
-        final List<String> your_array_list = placedatabase.getDataToList1(value,"Attraction");
+        final List<String> your_array_list = placedatabase.getDataToList1(value[1],value[0]);
 
         // This is the array adapter, it takes the context of the activity as a
         // first parameter, the type of list view as a second parameter and your

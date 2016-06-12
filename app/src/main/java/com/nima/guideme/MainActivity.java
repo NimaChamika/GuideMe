@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         btn_addplace = (Button) findViewById(R.id.b2);
         btn_addplace.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Adddistrict.class));
+                startActivity(new Intent(MainActivity.this, ProvincePage.class).putExtra("key","Attraction"));
             }
         });
 
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         btn_addplace = (Button) findViewById(R.id.b3);
         btn_addplace.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ShowDistrict.class));
+                startActivity(new Intent(MainActivity.this, ProvincePage.class).putExtra("key","Restaurant"));
             }
         });
 
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         btn_addplace = (Button) findViewById(R.id.b4);
         btn_addplace.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ProvincePage.class));
+                startActivity(new Intent(MainActivity.this, ProvincePage.class).putExtra("key","Hotel"));
             }
         });
     }
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         btn_addplace = (Button) findViewById(R.id.b5);
         btn_addplace.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ProvincePage.class));
+                startActivity(new Intent(MainActivity.this, ProvincePage.class).putExtra("key","Shopping"));
             }
         });
     }

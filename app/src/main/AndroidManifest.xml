@@ -66,6 +66,10 @@
             android:name=".ShowPlace"
             android:label="@string/title_activity_show_place" >
         </activity>
+        <activity
+            android:name=".ShowRestaurant"
+            android:label="@string/title_activity_show_restaurant" >
+        </activity>
     </application>
 
 </manifest>

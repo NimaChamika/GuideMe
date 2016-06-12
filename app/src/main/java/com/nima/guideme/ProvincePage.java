@@ -15,11 +15,16 @@ import android.widget.Toast;
 public class ProvincePage extends ActionBarActivity {
 
     AddPlaceDatabaseAdapter placedatabase;
+    public String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_province_page);
+
+        Intent intent = getIntent();
+        type = intent.getStringExtra("key");
+        System.out.println(type);
 
        southern();
         western();
@@ -51,7 +56,7 @@ public class ProvincePage extends ActionBarActivity {
 
                             //Toast.makeText(ProvincePage.this, "Matara", Toast.LENGTH_SHORT).show();
                             //ShowDistrict ddddd=new ShowDistrict("Matara");
-                            startActivity(new Intent(ProvincePage.this, ShowDistrict.class).putExtra("key", "Matara"));
+                            startActivity(new Intent(ProvincePage.this, ShowDistrict.class).putExtra("key",new String[]{type,"Matara"} ));
                             //startActivity(new Intent(view.getContext(), ShowDistrict.class));
                         }
 
